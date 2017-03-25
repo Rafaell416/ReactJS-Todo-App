@@ -28,6 +28,8 @@ class App extends React.Component{
 		}
 
 		this.createTask = this.createTask.bind(this)
+		this.toggleTask = this.toggleTask.bind(this)
+		this.saveTask = this.saveTask.bind(this)
 	}
 	render(){
 		return(
@@ -36,14 +38,15 @@ class App extends React.Component{
 				<CreateTodo createTask={this.createTask}/>
 				<TodoList 
 					todos={this.state.todos}
-					toggleTask={this.toggleTask.bind(null)}
+					toggleTask={this.toggleTask}
+					saveTask={this.saveTask}
 				/>
 			</div>
 		)
 	}
 
 	 toggleTask(task) {
-        const foundTodo = _.find(this.state.todos, todo => todo.task === task);
+        const foundTodo = _.find(this.state.todos, todo => todo.task === task)
         foundTodo.isCompleted = !foundTodo.isCompleted;
         this.setState({ todos: this.state.todos });
 	 }
@@ -56,6 +59,12 @@ class App extends React.Component{
 		this.setState({
 			todos: this.state.todos
 		})
+	}
+
+	saveTask(oldTask, newTask){
+		const foundTodo = _.find(this.state.todos, todo => todo.task === oldTask)
+		foundTodo.task = newTask
+		this.setState({todos: this.state.todos})
 	}
 }
 

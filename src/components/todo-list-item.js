@@ -11,6 +11,7 @@ class TodoListItem extends React.Component{
 
 		this.onCancelClick = this.onCancelClick.bind(this)
 		this.onEditClick = this.onEditClick.bind(this)
+		this.onSaveClick = this.onSaveClick.bind(this)
 	}
 
 	renderTaskSection(){
@@ -18,6 +19,16 @@ class TodoListItem extends React.Component{
 		 const taskStyle = {
             color: isCompleted ? 'green' : 'red',
             cursor: 'pointer'
+		}
+
+		if(this.state.isEditing){
+			return(
+				<td>
+					<form onSubmit={this.onSaveClick}>
+						<input type="text" defaultValue={task} ref="editInput"/>
+					</form>
+				</td>
+			)
 		}
 
 		return (
@@ -32,7 +43,7 @@ class TodoListItem extends React.Component{
 		if (this.state.isEditing) {
 			return (
 				<td>
-					<button>Save</button>
+					<button onClick={this.onSaveClick}>Save</button>
 					<button onClick={this.onCancelClick}>Cancel</button>
 				</td>
 			)
@@ -62,6 +73,16 @@ class TodoListItem extends React.Component{
 
 	onCancelClick(){
 		this.setState({isEditing: false})
+	}
+
+	onSaveClick(event){
+		event.preventDefault()
+
+		const oldTask = this.props.task
+		const newTask = this.refs.editInput.value
+		this.props.saveTask(oldTask, newTask)
+		console.log(this.props.task preventDefault(function(this.preventDefaulti)
+			console.log))
 	}
 
 
