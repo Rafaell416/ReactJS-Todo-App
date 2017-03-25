@@ -1,5 +1,7 @@
 import React from 'react'
 import TodoList from './todo-list'
+import CreateTodo from './create-todo'
+
 
 
 
@@ -29,6 +31,7 @@ class App extends React.Component{
 		return(
 			<div>
 				<h1>React To Do App </h1>
+				<CreateTodo />
 				<TodoList todos={this.state.todos}/>
 			</div>
 		)
