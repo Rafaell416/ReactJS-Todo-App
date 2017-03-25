@@ -8,6 +8,9 @@ class TodoListItem extends React.Component{
 		this.state = {
 			isEditing: false
 		}
+
+		this.onCancelClick = this.onCancelClick.bind(this)
+		this.onEditClick = this.onEditClick.bind(this)
 	}
 
 
@@ -16,13 +19,13 @@ class TodoListItem extends React.Component{
 			return (
 				<td>
 					<button>Save</button>
-					<button onClick={this.onCancelClick.bind(this)}>Cancel</button>
+					<button onClick={this.onCancelClick}>Cancel</button>
 				</td>
 			)
 		}
 		return (
 			<td>
-				<button onClick={this.onEditClick.bind(this)}>Edit</button>
+				<button onClick={this.onEditClick}>Edit</button>
 				<button>Delete</button>
 		   </td>
 		)
