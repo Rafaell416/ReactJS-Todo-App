@@ -3,9 +3,14 @@ import React from 'react'
 
 class CreateTodo extends React.Component{
 
+	constructor(){
+		super()
+		this.handleCreate = this.handleCreate.bind(this)
+	}
+
 	render() {
    	return (
-      	<form onSubmit={this.handleCreate.bind(this)}>
+      	<form onSubmit={this.handleCreate}>
          	<input type="text" placeholder="What do I need to do?" ref="createInput" />
          	<button>Create</button>
          </form>
@@ -14,7 +19,9 @@ class CreateTodo extends React.Component{
 
 	handleCreate(event){
 		event.preventDefault()
-		console.log(this.refs.createInput.value)
+
+		this.props.createTask(this.refs.createInput.value)
+		this.refs.createInput.value = ''
 	}
 }
 
