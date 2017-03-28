@@ -5,9 +5,9 @@ const HTMLWebpackPluginConfig = new  HtmlWebpackPlugin({
 	inject: 'body'
 })
 
-
 module.exports = {
 	entry: [
+	
 		'./src/index.js'
 	],
 	output: {
@@ -17,11 +17,11 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				test: /\.js$/, exclude: /node_modules/, loader: "babel-loader",
+     		    test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file", 
 				query:
 		      {
 		        presets:['react']
-		      }, 
+		      }
 			}
 		]
 	},

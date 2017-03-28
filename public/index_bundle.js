@@ -70,7 +70,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-console.log('HELLO FROM ENTRY');
+throw new Error("Module parse failed: /Users/rafaell416/Desktop/react-todoApp/src/index.js Unexpected token (7:1)\nYou may need an appropriate loader to handle this file type.\n| \n| ReactDOM.render (\n| \t<App />,\n| \tdocument.getElementById('root')\n| )");
 
 /***/ }),
 /* 1 */
