@@ -36,7 +36,7 @@ class App extends React.Component{
 		return(
 			<div>
 				<h1>React To Do App </h1>
-				<CreateTodo createTask={this.createTask}/>
+				<CreateTodo todos={this.state.todos} createTask={this.createTask}/>
 				<TodoList 
 					todos={this.state.todos}
 					toggleTask={this.toggleTask}
