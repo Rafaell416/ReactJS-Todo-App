@@ -51,7 +51,7 @@ class TodoListItem extends React.Component{
 		return (
 			<td>
 				<button onClick={this.onEditClick}>Edit</button>
-				<button>Delete</button>
+				<button onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete</button>
 		   </td>
 		)
 	}

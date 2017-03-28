@@ -30,6 +30,7 @@ class App extends React.Component{
 		this.createTask = this.createTask.bind(this)
 		this.toggleTask = this.toggleTask.bind(this)
 		this.saveTask = this.saveTask.bind(this)
+		this.deleteTask = this.deleteTask.bind(this)
 	}
 	render(){
 		return(
@@ -40,6 +41,7 @@ class App extends React.Component{
 					todos={this.state.todos}
 					toggleTask={this.toggleTask}
 					saveTask={this.saveTask}
+					deleteTask={this.deleteTask}
 				/>
 			</div>
 		)
@@ -64,6 +66,11 @@ class App extends React.Component{
 	saveTask(oldTask, newTask){
 		const foundTodo = _.find(this.state.todos, todo => todo.task === oldTask)
 		foundTodo.task = newTask
+		this.setState({todos: this.state.todos})
+	}
+
+	deleteTask(taskToDelete){
+		_.remove(this.state.todos, todo => todo.task === taskToDelete)
 		this.setState({todos: this.state.todos})
 	}
 }
