@@ -81,8 +81,7 @@ class TodoListItem extends React.Component{
 		const oldTask = this.props.task
 		const newTask = this.refs.editInput.value
 		this.props.saveTask(oldTask, newTask)
-		console.log(this.props.task preventDefault(function(this.preventDefaulti)
-			console.log))
+		this.setState({isEditing: false})
 	}
 
 
